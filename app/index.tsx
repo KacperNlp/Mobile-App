@@ -4,7 +4,7 @@ import AppList, { TaskStatus } from '../components/AppList';
 import type { TasksList } from '../components/AppList';
 
 export default function Index() {
-  const [taska, setTasks] = useState<TasksList[] | []>([]);
+  const [tasks, setTasks] = useState<TasksList[] | []>([]);
   const [text, setText] = useState('');
 
   const handlePressAddNewTask = () => {
@@ -14,13 +14,14 @@ export default function Index() {
       status: TaskStatus.InProgress
     }
 
-    const newTasksList = [...taska, newTask];
+    const newTasksList = [...tasks, newTask];
     setTasks(newTasksList);
     setText('');
   }
 
   const handleClickRemoveTask = (id: number) => {
-    console.log(id)
+    const tasksListWithRemovedTask = tasks.filter(task => task.id !== id);
+    setTasks(tasksListWithRemovedTask);
   }
 
   const handleClickChangeStatus = (id: number) => {
@@ -29,7 +30,7 @@ export default function Index() {
 
   return (
     <View>
-      <AppList tasksList={taska} handleClickRemoveTask={handleClickRemoveTask} handleClickChangeStatus={handleClickChangeStatus}  /> 
+      <AppList tasksList={tasks} handleClickRemoveTask={handleClickRemoveTask} handleClickChangeStatus={handleClickChangeStatus}  /> 
       <TextInput
         value={text}
         onChangeText={setText}
