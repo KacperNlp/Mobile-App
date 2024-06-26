@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { View, Text, StyleSheet } from "react-native";
-import { Button } from 'react-native-paper';
+import { Button, Chip } from 'react-native-paper';
 import globalStyles from '../styles/AppStyles'
 import appColors from '../styles/AppColors';
 
@@ -11,13 +11,17 @@ export default function Index() {
         <Text style={{...globalStyles.headline, textAlign: 'center'}}>Goal Tracker App</Text>
       </View>
       <View style={styles.body}>
+        <View style={styles.sectionWithPurpos}>
+          <Chip icon="information-variant">Water target: 2000 ml</Chip>
+        </View>
+        <View style={styles.watterProgress}></View>
         <View style={styles.headlineBox}>
           <Text style={styles.headlineText}>+Add a portion of water</Text>
         </View>
         <View style={styles.buttonsBox}>
           <View style={styles.innerButtonsBox}>
-            <Button icon="cup" mode="contained" buttonColor={appColors.blue}>Cup (250ml)</Button>
-            <Button icon="bottle-soda-classic-outline" mode="contained" buttonColor={appColors.blue}>Bottle (1L)</Button>
+            <Button icon="cup" mode="contained" buttonColor={appColors.blue}>Cup (250 ml)</Button>
+            <Button icon="bottle-soda-classic-outline" mode="contained" buttonColor={appColors.blue}>Bottle (1 L)</Button>
           </View>
           <Button icon="water-outline" mode="contained" buttonColor={appColors.blue}>Something else</Button>
         </View>
@@ -42,6 +46,16 @@ const styles = StyleSheet.create({
     width: '90%',
     marginHorizontal: 'auto',
     marginVertical: 20
+  },
+  sectionWithPurpos: {
+    marginBottom: 70,
+    marginHorizontal: 'auto',
+  },
+  watterProgress: {
+    width: 200,
+    height: 200,
+    backgroundColor: 'red',
+    marginHorizontal: 'auto',
   },
   headlineBox: {
     marginTop: 15,
