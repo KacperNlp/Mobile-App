@@ -2,13 +2,15 @@ import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({  
     input: {
+      width: '100%',
       borderWidth: 1,
       borderStyle: 'solid',
-      borderColor: '#000',
-      paddingHorizontal: 5,
+      borderColor: '#444',
+      paddingHorizontal: 15,
       paddingVertical: 10,
-      borderRadius: 5,
-      color: '#777'
+      borderRadius: 0,
+      color: '#777',
+      outlineWidth: 0,
     },
     headline: {
         fontSize: 18,

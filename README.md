@@ -1,1 +1,1 @@
-<h1>Water Tracker App</h1>
+<h1>Goal List App</h1>
