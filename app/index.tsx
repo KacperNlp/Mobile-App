@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { View, Text, StyleSheet } from "react-native";
 import { Button, Chip } from 'react-native-paper';
+import { AnimatedCircularProgress } from 'react-native-circular-progress';
 import globalStyles from '../styles/AppStyles'
 import appColors from '../styles/AppColors';
 
@@ -8,13 +9,22 @@ export default function Index() {
   return (
     <View style={styles.mainContainer}>
       <View style={styles.header}>
-        <Text style={{...globalStyles.headline, textAlign: 'center'}}>Goal Tracker App</Text>
+        <Text style={{...globalStyles.headline, textAlign: 'center'}}>Water Tracker App</Text>
       </View>
       <View style={styles.body}>
         <View style={styles.sectionWithPurpos}>
           <Chip icon="information-variant">Water target: 2000 ml</Chip>
         </View>
-        <View style={styles.watterProgress}></View>
+        <View style={styles.watterProgress}>
+          <AnimatedCircularProgress
+            size={120}
+            width={15}
+            fill={100}
+            tintColor="#00e0ff"
+            onAnimationComplete={() => console.log('onAnimationComplete')}
+            backgroundColor="#3d5875" 
+          />
+        </View>
         <View style={styles.headlineBox}>
           <Text style={styles.headlineText}>+Add a portion of water</Text>
         </View>
@@ -52,9 +62,6 @@ const styles = StyleSheet.create({
     marginHorizontal: 'auto',
   },
   watterProgress: {
-    width: 200,
-    height: 200,
-    backgroundColor: 'red',
     marginHorizontal: 'auto',
   },
   headlineBox: {
